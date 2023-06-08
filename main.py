@@ -17,6 +17,9 @@ def call():
   response = requests.get(URL)
   response.raise_for_status()
   data = response.json()
+  if data.status_code != 200:
+    print("Failed response!")
+    return
   print("\t-", data["activity"])
   print()
   return data
